@@ -1,0 +1,25 @@
+<ul>
+  <% @payment_requests.each do |payment_request| %>
+    <li>
+      <%= "#{payment_request.id}: #{payment_request.amount} #{payment_request.currency}, state: #{payment_request.state}" %>
+    </li>
+  <% end %>
+</ul>
+
+<div>
+  <%= form_for @payment_request do |form| %>
+    <div>
+      <%= form.label :amount %>
+      <%= form.text_field :amount %>
+    </div>
+    <div>
+      <%= form.label :currency %>
+      <%= form.text_field :currency %>
+    </div>
+    <div>
+      <%= form.label :description %>
+      <%= form.text_field :description %>
+    </div>
+    <%= form.submit 'Send Payment Request' %>
+  <% end %>
+</div>
